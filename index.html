@@ -1,121 +1,212 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Santhosh Projects</title>
-    </head>
-    <style>
-      *{
-        margin:10px;
-        padding: 0px;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Santhosh Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --card: #151515;
+      --accent: #ff3b3b;
+      --text: #ffffff;
+      --muted: #bdbdbd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* ---------- HEADER ---------- */
+    .hero-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-heading {
+      position: relative;
+      z-index: 10;          /* stays above page content */
+    }
+
+
+    .hero-heading h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      letter-spacing: 1px;
+    }
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+   
+
+    .search-box input {
+      width: 260px;
+      max-width: 100%;
+      height: 40px;
+      border-radius: 12px;
+      border: none;
+      padding: 0 14px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search-box img {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    /* ---------- SEARCH RESULTS ---------- */
+    .search-results {
+      position: absolute;
+      top: calc(100% + 8px);   /* always below input */
+      left: 0;
+      width: 100%;
+      background: #151515;
+      border: 1px solid #ff3b3b;
+      border-radius: 14px;
+      max-height: 220px;
+      overflow-y: auto;
+      z-index: 9999;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    }
+
+    .search-results div {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .search-results div:hover {
+      background-color: var(--accent);
+      color: black;
+    }
+
+    /* ---------- PROMPT BLOCK ---------- */
+    #prompt-container {
+        position: relative;
+        z-index: 1;
+        margin-top: 40px;
+    }
+
+    .prompt-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      background: var(--card);
+      padding: 25px;
+      border-radius: 16px;
+      align-items: center;
+    }
+
+    .prompt-block img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .prompt-block h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 10px;
+    }
+
+    .prompt-block p {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--muted);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid #333;
+      text-align: center;
+    }
+
+    .instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .instagram img {
+      width: 32px;
+      border-radius: 10px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .prompt-block {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
-      body{
-        background-color: black;
-        color:white
-        
-      }
-      .hero-heading{
-        display: flex;
-        align-items: center;
+
+      .search-box {
+        width: 100%;
         justify-content: space-between;
       }
-      .search-box input{
-        width:300px;
-        height:30px;
-        border-radius:10px;
-        border:none;
-        padding-left:10px;
-      }
-      .search-box img{
-        width:34px;
-        height:35px;
-        vertical-align:middle;
-        border-radius: 10px;
-        cursor:pointer;
-      }
 
-      .prompt-block{
-        display: flex;
-        gap:20px;
-        align-items: center;
-        margin-left: 13%;
-        margin-right: 13%;
+      .search-box input {
+        width: 100%;
       }
-      .prompt-block img{
-        width:35%;
-        height:35%;
-        border-radius:10px; 
-      }
-      .prompt-block h2{
-        font-size: 60px;
-      }
-      .prompt-block p{
-        font-size: 30px;
-      }
-      .footer{
-        display: block;
-        align-items: center;
-        justify-content: center;
-        margin-top: 10px;
-        border-top: 1px solid white;
-        padding-top: 10px;
-      }
-      .instagram{
-        display: flex;
-      }
-      .instagram img{
-        border-radius: 15px;
-      }
-      .search-results {
-        position: absolute;
-        background: rgb(0, 0, 0);
-        border: 1px solid #ff0000;
-        max-height: 150px;
-        overflow-y: auto;
-        width: 20%;
-        z-index: 100;
-        border-radius: 10px;
-      }
+    }
+  </style>
+</head>
 
-      .search-results div {
-        padding: 8px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
+<body>
 
-      .search-results div:hover {
-        background-color: #f0f0f0;
-        color: black;
-      }
+  <div class="container">
 
-    </style>
-    <body>
+    <!-- HEADER -->
+    <div class="hero-heading">
+      <h1>CHATGPT PROMPTS</h1>
 
-      <!-- heading section -->
-      <div class="hero-heading">
-        <h1>CHATGPT PROMPTS</h1>
-        <div class="search-box">
-          <input 
-          type="text" 
-          placeholder="Search"
-          id="search-input">
-            <img 
-            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAMEAwQMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABAUGAgMBB//aAAgBAQAAAADSgAAAAAAAAAcxfkj1AAA8M9T8lho54AAh4/m6seodLE014AA88R6a+QPmXptjYgAZ2g28oHzFtqABiJmrAVGU3MkAH57pb0BGw2utAAfnukvgEXD6+zABiZWsAU2W3UgAFBndtLBzifXZgAcYlr5Q4ylZs5wACLi+bmw6h0vlqbcAAhYp1x9+2uhlgADH1vtuvLmR9AACuxzUXQAABioUrb/QAAFTk2ttQAAHzDxp20AAAKvItlYAAAHnl5GkAAAAAAAAAAAAAAAf/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAoCAhADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//xAA4EAACAgACBQkHAwQDAAAAAAABAgMEAAURIjFBURASExQhIzBAcSAyM0JygaFSYWNEUFNgYpLR/9oACAEBAAE/AP76zKg0uwUcSdGGzCiu2ymBmVA/1K4jnhl+HKjejA+UnsQ1k58rhRiznU79kA6NcO7yMWdmY8WOn2K+Z24Pn568HxTzGC3qjUk/QfI3bsdKLnHWc+4mJ55bEhklcsxxHFJM4SJC7cBiDI32zzfZMLlFBdsRb1Y4OVUP8GJcjhPwZWXFmlZqfFTV3OO1eTLczMxEE519iP48sqQxPK51UGk4s2JLUzSvtOKdN7kvMXsUdrtivWhqxhIl/wDT7LKrAqwBBGgg4zLLOr99D8Lev6OTLLnW4Nf4qdj+Nnlj4dcfW+FVnZVUaWYgAcScU6yVIFiX1Y8W9sgEEEaQRoIxfqdUsMg9w6yYoWerW43+U6r+h8a9L01yw/FzjJoQ9svuiTwc6hD1BJvjbkpy9NUrybyg8QnQCcbcZCvdWG4uPBupz6dofxMeTJzpoJ+zv4hGkEY0aOzGQt3VlODqfBvPzKVo/wARHJk40UE/d3Pi34uhuTp/zJHo2Mmm6K5zN0q83wc7mCVki3u34XkqxdBWgi3qgB8XPK5IjsD6HwCQQQdBB0g4pW1twK+xtjj23dUVndgFUaSTi7aNuw8uwbFHBcZbW6xbQEaia7eNJGkqPG40qwIOLdZ6szRP6qeIxVtS1JRIn3XcwxVtw2050bfUu8ey8kcSF5HCqNpOMxzFreomrCMAFiFUEknQAN5xQpinAF2u3a58e3Uitxcx/VW4YljMUrxkglGIJGEd0YOjFWGwjEGdzp2TIHwmdUztEi4Oc0eMh9FxLnu6GD7viezPZbnSyFsKrOyoqlmbYBjLssFbvZe2b8J5C/aFWs7/ADnVTlKOFVyjBTsYjsONI48iK0h0IrMeCjTivk9qXtfulxVpV6i92utvc7T5HNLXWbJCnUTVXkrwNZnSFfmPaeAwiKiKijQqgADDVaz+9BGfVRgU6i7K0X/QYChRoAAHks0tdWrEKdeTVXlyar0cJnYa8v4Ty1+11uy7j3BqpyUqxt2Ei3bX+nAAAAA0AeVze10NfolOvL+F5cpq9BW57DXl8qSFBZjoABJPADFyy1qw8p+w4LyZdV61ZVSNRNZ/LZwzLRbRvdQeXLavVawDDXfWfy00STRPG40qwxYye1E3dd6mKGUyiVZbIAC9oT/Xf//EABQRAQAAAAAAAAAAAAAAAAAAAHD/2gAIAQIBAT8AKf/EABQRAQAAAAAAAAAAAAAAAAAAAHD/2gAIAQMBAT8AKf/Z" alt="search">
-            <div id="search-results" class="search-results"></div>
-          </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search" id="search-input">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAMEAwQMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABAUGAgMBB//aAAgBAQAAAADSgAAAAAAAAAcxfkj1AAA8M9T8lho54AAh4/m6seodLE014AA88R6a+QPmXptjYgAZ2g28oHzFtqABiJmrAVGU3MkAH57pb0BGw2utAAfnukvgEXD6+zABiZWsAU2W3UgAFBndtLBzifXZgAcYlr5Q4ylZs5wACLi+bmw6h0vlqbcAAhYp1x9+2uhlgADH1vtuvLmR9AACuxzUXQAABioUrb/QAAFTk2ttQAAHzDxp20AAAKvItlYAAAHnl5GkAAAAAAAAAAAAAAAf/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAoCAhADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//xAA4EAACAgACBQkHAwQDAAAAAAABAgMEAAURIjFBURASExQhIzBAcSAyM0JygaFSYWNEUFNgYpLR/9oACAEBAAE/AP76zKg0uwUcSdGGzCiu2ymBmVA/1K4jnhl+HKjejA+UnsQ1k58rhRiznU79kA6NcO7yMWdmY8WOn2K+Z24Pn568HxTzGC3qjUk/QfI3bsdKLnHWc+4mJ55bEhklcsxxHFJM4SJC7cBiDI32zzfZMLlFBdsRb1Y4OVUP8GJcjhPwZWXFmlZqfFTV3OO1eTLczMxEE519iP48sqQxPK51UGk4s2JLUzSvtOKdN7kvMXsUdrtivWhqxhIl/wDT7LKrAqwBBGgg4zLLOr99D8Lev6OTLLnW4Nf4qdj+Nnlj4dcfW+FVnZVUaWYgAcScU6yVIFiX1Y8W9sgEEEaQRoIxfqdUsMg9w6yYoWerW43+U6r+h8a9L01yw/FzjJoQ9svuiTwc6hD1BJvjbkpy9NUrybyg8QnQCcbcZCvdWG4uPBupz6dofxMeTJzpoJ+zv4hGkEY0aOzGQt3VlODqfBvPzKVo/wARHJk40UE/d3Pi34uhuTp/zJHo2Mmm6K5zN0q83wc7mCVki3u34XkqxdBWgi3qgB8XPK5IjsD6HwCQQQdBB0g4pW1twK+xtjj23dUVndgFUaSTi7aNuw8uwbFHBcZbW6xbQEaia7eNJGkqPG40qwIOLdZ6szRP6qeIxVtS1JRIn3XcwxVtw2050bfUu8ey8kcSF5HCqNpOMxzFreomrCMAFiFUEknQAN5xQpinAF2u3a58e3Uitxcx/VW4YljMUrxkglGIJGEd0YOjFWGwjEGdzp2TIHwmdUztEi4Oc0eMh9FxLnu6GD7viezPZbnSyFsKrOyoqlmbYBjLssFbvZe2b8J5C/aFWs7/ADnVTlKOFVyjBTsYjsONI48iK0h0IrMeCjTivk9qXtfulxVpV6i92utvc7T5HNLXWbJCnUTVXkrwNZnSFfmPaeAwiKiKijQqgADDVaz+9BGfVRgU6i7K0X/QYChRoAAHks0tdWrEKdeTVXlyar0cJnYa8v4Ty1+11uy7j3BqpyUqxt2Ei3bX+nAAAAA0AeVze10NfolOvL+F5cpq9BW57DXl8qSFBZjoABJPADFyy1qw8p+w4LyZdV61ZVSNRNZ/LZwzLRbRvdQeXLavVawDDXfWfy00STRPG40qwxYye1E3dd6mKGUyiVZbIAC9oT/Xf//EABQRAQAAAAAAAAAAAAAAAAAAAHD/2gAIAQIBAT8AKf/EABQRAQAAAAAAAAAAAAAAAAAAAHD/2gAIAQMBAT8AKf/Z" alt="search">
+        <div id="search-results" class="search-results"></div>
       </div>
-      <!-- prompt block -->
-      <div id="prompt-container"></div>
-      <script src="data.js"></script>
-      <script src="script.js"></script>
-      <!-- footer -->
-      <div class = "footer">
-        <h1>Contact me in </h1><br>
-        <a href="">
-          <div class="instagram">
-            <img src="./images/instagram.png" alt="instagram" width="30px">
-            <h3>Instagram</h3>
-          </div>
-        </a>
-      </div>
-    </body>
+    </div>
+
+    <!-- PROMPTS -->
+    <div id="prompt-container"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <h2>Contact me</h2>
+    <a href="#" class="instagram">
+      <img src="./images/instagram.png" alt="instagram">
+      <span>Instagram</span>
+    </a>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
