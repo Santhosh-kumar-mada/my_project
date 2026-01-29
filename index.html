@@ -59,6 +59,26 @@
       .instagram img{
         border-radius: 15px;
       }
+      .search-results {
+        position: absolute;
+        background: white;
+        border: 1px solid #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%;
+        z-index: 100;
+      }
+
+      .search-results div {
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      .search-results div:hover {
+        background-color: #f0f0f0;
+        color: black;
+      }
+
     </style>
     <body>
 
@@ -68,9 +88,11 @@
         <div class="search-box">
           <input 
           type="text" 
-          placeholder="Search">
+          placeholder="Search"
+          id="search-input">
             <img 
             src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAMEAwQMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABAUGAgMBB//aAAgBAQAAAADSgAAAAAAAAAcxfkj1AAA8M9T8lho54AAh4/m6seodLE014AA88R6a+QPmXptjYgAZ2g28oHzFtqABiJmrAVGU3MkAH57pb0BGw2utAAfnukvgEXD6+zABiZWsAU2W3UgAFBndtLBzifXZgAcYlr5Q4ylZs5wACLi+bmw6h0vlqbcAAhYp1x9+2uhlgADH1vtuvLmR9AACuxzUXQAABioUrb/QAAFTk2ttQAAHzDxp20AAAKvItlYAAAHnl5GkAAAAAAAAAAAAAAAf/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAoCAhADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//xAA4EAACAgACBQkHAwQDAAAAAAABAgMEAAURIjFBURASExQhIzBAcSAyM0JygaFSYWNEUFNgYpLR/9oACAEBAAE/AP76zKg0uwUcSdGGzCiu2ymBmVA/1K4jnhl+HKjejA+UnsQ1k58rhRiznU79kA6NcO7yMWdmY8WOn2K+Z24Pn568HxTzGC3qjUk/QfI3bsdKLnHWc+4mJ55bEhklcsxxHFJM4SJC7cBiDI32zzfZMLlFBdsRb1Y4OVUP8GJcjhPwZWXFmlZqfFTV3OO1eTLczMxEE519iP48sqQxPK51UGk4s2JLUzSvtOKdN7kvMXsUdrtivWhqxhIl/wDT7LKrAqwBBGgg4zLLOr99D8Lev6OTLLnW4Nf4qdj+Nnlj4dcfW+FVnZVUaWYgAcScU6yVIFiX1Y8W9sgEEEaQRoIxfqdUsMg9w6yYoWerW43+U6r+h8a9L01yw/FzjJoQ9svuiTwc6hD1BJvjbkpy9NUrybyg8QnQCcbcZCvdWG4uPBupz6dofxMeTJzpoJ+zv4hGkEY0aOzGQt3VlODqfBvPzKVo/wARHJk40UE/d3Pi34uhuTp/zJHo2Mmm6K5zN0q83wc7mCVki3u34XkqxdBWgi3qgB8XPK5IjsD6HwCQQQdBB0g4pW1twK+xtjj23dUVndgFUaSTi7aNuw8uwbFHBcZbW6xbQEaia7eNJGkqPG40qwIOLdZ6szRP6qeIxVtS1JRIn3XcwxVtw2050bfUu8ey8kcSF5HCqNpOMxzFreomrCMAFiFUEknQAN5xQpinAF2u3a58e3Uitxcx/VW4YljMUrxkglGIJGEd0YOjFWGwjEGdzp2TIHwmdUztEi4Oc0eMh9FxLnu6GD7viezPZbnSyFsKrOyoqlmbYBjLssFbvZe2b8J5C/aFWs7/ADnVTlKOFVyjBTsYjsONI48iK0h0IrMeCjTivk9qXtfulxVpV6i92utvc7T5HNLXWbJCnUTVXkrwNZnSFfmPaeAwiKiKijQqgADDVaz+9BGfVRgU6i7K0X/QYChRoAAHks0tdWrEKdeTVXlyar0cJnYa8v4Ty1+11uy7j3BqpyUqxt2Ei3bX+nAAAAA0AeVze10NfolOvL+F5cpq9BW57DXl8qSFBZjoABJPADFyy1qw8p+w4LyZdV61ZVSNRNZ/LZwzLRbRvdQeXLavVawDDXfWfy00STRPG40qwxYye1E3dd6mKGUyiVZbIAC9oT/Xf//EABQRAQAAAAAAAAAAAAAAAAAAAHD/2gAIAQIBAT8AKf/EABQRAQAAAAAAAAAAAAAAAAAAAHD/2gAIAQMBAT8AKf/Z" alt="search">
+            <div id="search-results" class="search-results"></div>
           </div>
       </div>
       <!-- prompt block -->
