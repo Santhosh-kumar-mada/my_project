@@ -13,5 +13,5 @@ const prompts = [
     image: "./images/prompt-003.jpeg",
     title: "3. Luxury Evening Editorial Portrait",
     description: "Photorealistic cinematic portrait of an elegant man in a warm, upscale interior, using the uploaded image as a facial and body reference, dressed in a tailored black suit with a long overcoat, refined grooming and neatly styled hair, calm confident expression, standing casually with hands in pockets; soft golden ambient lighting from modern pendant lamps, rich reflections and depth, shallow depth of field with a softly blurred luxury lounge background, high contrast with warm highlights and deep shadows, premium fashion editorial style, realistic skin tones, sharp fabric textures, cinematic color grading, 85mm lens look, f/1.8, sophisticated and timeless mood."
-  }
+  }  
 ];
