@@ -43,8 +43,21 @@
       .prompt-block img{
         width:35%;
         height:35%;
-        border-radius:10px;
-        
+        border-radius:10px; 
+      }
+      .footer{
+        display: block;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        border-top: 1px solid white;
+        padding-top: 10px;
+      }
+      .instagram{
+        display: flex;
+      }
+      .instagram img{
+        border-radius: 15px;
       }
     </style>
     <body>
@@ -66,9 +79,13 @@
       <script src="script.js"></script>
       <!-- footer -->
       <div class = "footer">
-        <h1>Contact me in </h1>
-        <img src="./images/instagram.png" alt="instagram">
-        <h3>Instagram</h3>
+        <h1>Contact me in </h1><br>
+        <a href="">
+          <div class="instagram">
+            <img src="./images/instagram.png" alt="instagram" width="30px">
+            <h3>Instagram</h3>
+          </div>
+        </a>
       </div>
     </body>
 </html>
