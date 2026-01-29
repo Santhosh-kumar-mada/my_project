@@ -4,9 +4,14 @@
       <title>Santhosh Projects</title>
     </head>
     <style>
+      *{
+        margin:10px;
+        padding: 0px;
+      }
       body{
         background-color: black;
         color:white
+        
       }
       .hero-heading{
         display: flex;
@@ -32,11 +37,12 @@
         display: flex;
         gap:20px;
         align-items: center;
-        
+        margin-left: 13%;
+        margin-right: 13%;
       }
       .prompt-block img{
-        width:300px;
-        height:200px;
+        width:35%;
+        height:35%;
         border-radius:10px;
         
       }
@@ -55,12 +61,14 @@
           </div>
       </div>
       <!-- prompt block -->
-      <div class="prompt-block">
-        <img src="./images/example.jpg" alt="image not found">
-        <div>
-          <h2>TILE OF THE PROMPT</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
+      <div id="prompt-container"></div>
+      <script src="data.js"></script>
+      <script src="script.js"></script>
+      <!-- footer -->
+      <div class = "footer">
+        <h1>Contact me in </h1>
+        <img src="./images/instagram.png" alt="instagram">
+        <h3>Instagram</h3>
       </div>
     </body>
 </html>
